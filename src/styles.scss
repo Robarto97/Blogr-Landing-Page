@@ -43,106 +43,123 @@ header {
         display: block;
       }
     }
-    > ul {
-      display: flex;
-      flex-direction: row;
-      gap: 3.5rem;
-      li {
-        position: relative;
-        a {
-          font-weight: 700;
-          color: hsl(24, 100%, 88%);
-          font-size: 1.1rem;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          gap: 0.75rem;
-        }
-        a::after {
-          content: "";
-          display: block;
-          width: 10px;
-          height: 10px;
-          background-image: url(images/icon-arrow-light.svg);
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-position: center;
-          transition: transform 0.5s ease;
-        }
-        a:hover {
-          color: $white;
-          text-decoration: underline;
-        }
-        ul {
-          position: absolute;
-          min-width: 200px;
-          background-color: $white;
-          display: flex;
-          flex-direction: column;
-          top: 0;
-          left: 0;
-          margin-top: 1rem;
-          margin-left: -3rem;
-          padding: 2rem;
-          border-radius: 0.5rem;
-          box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
-          transform: scale(0);
-          transition: transform 0.5s ease;
-          transition-property: transform, margin;
-          transform-origin: top center;
-          li {
-            margin-bottom: 1.25rem;
-            width: auto;
-            a {
-              color: $bodyTextColor;
-              font-weight: 500;
-            }
-            a:hover {
-              color: black;
-              text-decoration: none;
-              font-weight: 600;
-            }
-          }
-          li:last-child {
-            margin-bottom: unset;
-          }
-        }
-      }
-      li:hover ul {
-        margin-top: 3rem;
-        transform: scale(1);
-      }
-      li:hover a::after {
-        transform: rotate(180deg);
-      }
+    .menu {
+      display: none;
     }
-    .links {
-      margin-left: auto;
+    .head {
+      flex-grow: 1;
       display: flex;
-      flex-direction: row;
+      justify-content: space-between;
       align-items: center;
-      gap: 2.5rem;
-      a:first-of-type {
-        color: hsl(24, 100%, 88%);
-        font-weight: 700;
-        font-size: 1.1rem;
+      > ul {
+        display: flex;
+        flex-direction: row;
+        gap: 3.5rem;
+        li {
+          position: relative;
+          button {
+            font-weight: 700;
+            color: hsl(24, 100%, 88%);
+            font-size: 1.1rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            background-color: unset;
+            border: unset;
+            cursor: pointer;
+          }
+          button::after {
+            content: "";
+            display: block;
+            width: 10px;
+            height: 10px;
+            background-image: url(images/icon-arrow-light.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            transition: transform 0.5s ease;
+          }
+          button:hover {
+            color: $white;
+            text-decoration: underline;
+          }
+          button:hover + button::after {
+            transform: rotate(180deg);
+          }
+          ul {
+            position: absolute;
+            min-width: 200px;
+            background-color: $white;
+            display: flex;
+            flex-direction: column;
+            top: 0;
+            left: 0;
+            margin-top: 1rem;
+            margin-left: -3rem;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+            transform: scale(0);
+            transition: transform 0.5s ease;
+            transition-property: transform, margin;
+            transform-origin: top center;
+            li {
+              margin-bottom: 1.25rem;
+              width: auto;
+              a {
+                color: $bodyTextColor;
+                font-weight: 500;
+              }
+              a:hover {
+                color: black;
+                text-decoration: none;
+                font-weight: 600;
+              }
+            }
+            li:last-child {
+              margin-bottom: unset;
+            }
+          }
+        }
+        @media (hover: hover) {
+          li:hover ul {
+            margin-top: 3rem;
+            transform: scale(1);
+          }
+          li:hover button::after {
+            transform: rotate(180deg);
+          }
+        }
       }
-      a:first-of-type:hover {
-        text-decoration: underline;
-        color: $white;
-      }
-      a:last-of-type {
-        color: $lightRed;
-        background-color: $white;
-        padding: 1rem 2.25rem;
-        border-radius: 30px;
-        transition: all 0.25s ease;
-        font-weight: 700;
-        font-size: 1.1rem;
-      }
-      a:last-of-type:hover {
-        background-color: $veryLightRed;
-        color: $white;
+      .links {
+        margin-left: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2.5rem;
+        a:first-of-type {
+          color: hsl(24, 100%, 88%);
+          font-weight: 700;
+          font-size: 1.1rem;
+        }
+        a:first-of-type:hover {
+          text-decoration: underline;
+          color: $white;
+        }
+        a:last-of-type {
+          color: $lightRed;
+          background-color: $white;
+          padding: 1rem 2.25rem;
+          border-radius: 30px;
+          transition: all 0.25s ease;
+          font-weight: 700;
+          font-size: 1.1rem;
+        }
+        a:last-of-type:hover {
+          background-color: $veryLightRed;
+          color: $white;
+        }
       }
     }
   }
@@ -315,6 +332,12 @@ footer {
   gap: 20%;
   font-family: "Ubuntu", sans-serif;
   margin-top: 10%;
+  .logo {
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
   .footer-links {
     display: flex;
     flex-direction: row;
@@ -340,6 +363,242 @@ footer {
         a {
           color: $white;
           font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  header {
+    padding-bottom: 30%;
+    background: url(images/bg-pattern-intro-mobile.svg) no-repeat top -40vh left -95vw,
+      linear-gradient(to right, hsl(13deg, 100%, 72%), hsl(353deg, 100%, 62%));
+    nav {
+      justify-content: space-between;
+      gap: unset;
+      padding: 3.5rem 2rem;
+      position: relative;
+      .logo {
+        width: 30%;
+      }
+      .menu {
+        display: block;
+        background-image: url(images/icon-hamburger.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 35px;
+        height: 25px;
+        transition: all 0.5s ease;
+      }
+      .menu.close {
+        background-image: url(images/icon-close.svg);
+      }
+      .head {
+        // display: none;
+        transform: scale(0);
+        transition: transform 0.5s ease;
+        transform-origin: top right;
+        transition-property: transform, top;
+        position: absolute;
+        width: 90%;
+        margin: auto;
+        top: 60%;
+        left: 0%;
+        right: 0%;
+        background-color: $white;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem;
+        gap: 2rem;
+        box-shadow: 0 0 10px 5px rgb(0 0 0 / 10%);
+        font-family: "Overpass", sans-serif;
+        border-radius: 5px;
+        z-index: 100;
+        > ul {
+          flex-direction: column;
+          width: 100%;
+          gap: 1.5rem;
+          border-bottom: 1px solid $grayishBlueFooter;
+          padding-bottom: 2rem;
+          li {
+            button {
+              color: $bodyTextColor;
+              font-weight: 600;
+              margin: auto;
+            }
+            button::after {
+              background-image: url(images/icon-arrow-dark.svg);
+            }
+            button:hover {
+              color: black;
+            }
+            > ul {
+              position: unset;
+              box-shadow: unset;
+              background-color: $grayishBlueFooter;
+              position: absolute;
+              margin: unset;
+              align-items: center;
+              opacity: 0;
+              transition: all 0.5s ease;
+              a::after {
+                display: none;
+              }
+            }
+            ul.show {
+              position: unset;
+              opacity: 1;
+              transform: scale(1);
+              margin-top: 2rem;
+            }
+          }
+        }
+        .links {
+          flex-direction: column;
+          margin-left: unset;
+          gap: 1rem;
+          width: 100%;
+          a:first-child {
+            color: $bodyTextColor;
+          }
+          a:last-child {
+            background-image: linear-gradient(
+              to right,
+              hsl(13deg, 100%, 72%),
+              hsl(353deg, 100%, 62%)
+            );
+            color: $white;
+          }
+        }
+      }
+      .head.show {
+        transform: scale(1);
+        top: 80%;
+      }
+    }
+    .header-title {
+      padding: 1.5rem;
+      h1 {
+        font-size: 2.2rem;
+      }
+      p {
+        font-size: 1.2rem;
+      }
+      .header-title-links {
+        margin-top: 1.5rem;
+        a {
+          width: 40%;
+          font-size: 1rem;
+          padding: 0.75rem 0;
+        }
+      }
+    }
+  }
+  main {
+    .design {
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: 100%;
+      gap: 1rem;
+      h2 {
+        font-size: 1.75rem;
+        letter-spacing: -1px;
+        margin-bottom: 2rem;
+      }
+      .content {
+        width: 100%;
+        text-align: center;
+        padding: 0 1.75rem;
+        padding-bottom: 30%;
+        article {
+          h3 {
+            font-size: 1.75rem;
+          }
+          p {
+            font-size: 1.09rem;
+          }
+        }
+      }
+      .img-wrapper {
+        position: unset;
+        grid-row: 2 / span 1;
+        width: 100%;
+        min-height: 50vh;
+        margin-bottom: 2rem;
+        background-image: url(images/illustration-editor-mobile.svg);
+        background-position: top center;
+        background-size: 110%;
+      }
+    }
+    .state-art {
+      padding: 5rem 2rem;
+      margin-top: 40%;
+      padding-top: 10rem;
+      background: url(images/bg-pattern-circles.svg) no-repeat top -40vh left -30vw,
+        linear-gradient(to right, hsl(237deg, 17%, 21%), hsl(237deg, 23%, 32%));
+      background-size: cover;
+      .img-wrapper {
+        width: 100%;
+        min-height: 60vh;
+        left: 0;
+        top: -30%;
+      }
+      article {
+        width: 100%;
+        text-align: center;
+        margin-top: 3rem;
+        h2 {
+          font-size: 2.25rem;
+        }
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+    .tools {
+      padding-right: unset;
+      display: flex;
+      flex-direction: column;
+      .img-wrapper {
+        position: unset;
+        width: 100%;
+        background-image: url(images/illustration-laptop-mobile.svg);
+        background-size: 130%;
+        background-position: top center;
+        min-height: 55vh;
+      }
+      .content {
+        width: 100%;
+        text-align: center;
+        padding: 2rem;
+        article {
+          h2 {
+            font-size: 1.75rem;
+          }
+          p {
+            font-size: 1.05rem;
+          }
+        }
+      }
+    }
+  }
+  footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    padding: 5rem 0;
+    .logo {
+    }
+    .footer-links {
+      flex-direction: column;
+      gap: 3rem;
+      ul {
+        align-items: center;
+        gap: 0.75rem;
+        li:first-of-type {
+          margin-bottom: 1rem;
         }
       }
     }
