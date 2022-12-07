@@ -7,9 +7,7 @@ const Footer = () => {
       </div>
       <div className="footer-links">
         <ul className="product">
-          <li>
-            <a href="/">Product</a>
-          </li>
+          <li>Product</li>
           <li>
             <a href="/">Overview</a>
           </li>
@@ -27,9 +25,7 @@ const Footer = () => {
           </li>
         </ul>
         <ul className="company">
-          <li>
-            <a href="/">Company</a>
-          </li>
+          <li>Company</li>
           <li>
             <a href="/">About</a>
           </li>
@@ -44,9 +40,7 @@ const Footer = () => {
           </li>
         </ul>
         <ul className="connect">
-          <li>
-            <a href="/">Connect</a>
-          </li>
+          <li>Connect</li>
           <li>
             <a href="/">Contact</a>
           </li>
