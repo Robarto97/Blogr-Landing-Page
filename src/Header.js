@@ -1,6 +1,5 @@
 import logo from "./images/logo.svg";
 const Header = () => {
-  const handleClick = (index) => {};
   const handleMenu = () => {
     document.querySelector(".head").classList.toggle("show");
     document.querySelector(".menu").classList.toggle("close");

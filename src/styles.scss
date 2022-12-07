@@ -396,7 +396,6 @@ footer {
         background-image: url(images/icon-close.svg);
       }
       .head {
-        // display: none;
         transform: scale(0);
         transition: transform 0.5s ease;
         transform-origin: top right;
@@ -589,8 +588,6 @@ footer {
     align-items: center;
     gap: 4rem;
     padding: 5rem 0;
-    .logo {
-    }
     .footer-links {
       flex-direction: column;
       gap: 3rem;
